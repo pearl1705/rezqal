@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Little Place For You</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Serif+Display&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =========================================
+         PASSWORD PAGE
+    ========================================== -->
+
+    <div
+        class="password-page"
+        id="passwordPage"
+    >
+
+        <div class="password-stars">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>✧</span>
+
+        </div>
+
+
+        <div class="password-moon"></div>
+
+
+        <div class="password-butterflies">
+
+            <div class="password-butterfly password-butterfly-1">
+                🦋
+            </div>
+
+            <div class="password-butterfly password-butterfly-2">
+                🦋
+            </div>
+
+        </div>
+
+
+        <div class="password-content">
+
+            <p class="password-small">
+                just one little thing ♡
+            </p>
+
+
+            <h1>
+                Before you come in...
+            </h1>
+
+
+            <p class="password-sub">
+                there's a little secret<br>
+                only you should know.
+            </p>
+
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="enter the secret"
+                autocomplete="off"
+                onkeydown="checkEnter(event)"
+            >
+
+
+            <button
+                class="password-button"
+                onclick="checkPassword()"
+            >
+                open ♡
+            </button>
+
+
+            <p
+                class="password-error"
+                id="passwordError"
+            >
+                hmm... that's not it ♡
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         OPENING ENVELOPE PAGE
+    ========================================== -->
+
+    <div
+        class="envelope-page"
+        id="envelopePage"
+    >
+
+        <div class="stars">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>✧</span>
+
+        </div>
+
+
+        <div class="moon"></div>
+
+
+        <div class="floating-lights">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="butterflies">
+
+            <div class="butterfly butterfly-1">
+                🦋
+            </div>
+
+            <div class="butterfly butterfly-2">
+                🦋
+            </div>
+
+            <div class="butterfly butterfly-3">
+                🦋
+            </div>
+
+        </div>
+
+
+        <div class="sparkles">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+
+        </div>
+
+
+        <div class="intro">
+
+            <p class="small-text">
+                for Rezqal, quietly ♡
+            </p>
+
+            <h1>
+                I left something<br>
+                here for you.
+            </h1>
+
+            <p class="sub-text">
+                whenever you're ready
+            </p>
+
+        </div>
+
+
+        <div
+            class="envelope-wrapper"
+            id="envelopeWrapper"
+        >
+
+            <div class="glow"></div>
+
+
+            <div
+                class="envelope"
+                id="envelope"
+                onclick="openEnvelope()"
+            >
+
+                <div class="flap"></div>
+
+
+                <div class="letter-inside">
+
+                    <div class="tiny-heart">
+                        ♡
+                    </div>
+
+                </div>
+
+
+                <div class="envelope-front"></div>
+
+            </div>
+
+        </div>
+
+
+        <p class="click-text">
+            touch the envelope
+        </p>
+
+
+        <p class="bottom-text">
+            some things are better left as little surprises
+        </p>
+
+    </div>
+
+
+
+    <!-- =========================================
+         LETTER PAGE
+    ========================================== -->
+
+    <div
+        class="letter-page"
+        id="letterPage"
+    >
+
+        <div class="letter-background-stars">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="letter-page-content">
+
+
+            <!-- BACK TO ENVELOPE -->
+
+            <button
+                class="envelope-back-button letter-envelope-back"
+                onclick="backToEnvelope()"
+            >
+                ← back to the envelope
+            </button>
+
+
+            <!-- HANDWRITTEN LETTER -->
+
+            <div class="letter">
+
+                <p class="letter-intro">
+                    maybe some things are worth saying.
+                </p>
+
+
+                <div
+                    class="handwritten-text"
+                    id="handwrittenText"
+                ></div>
+
+
+                <span
+                    class="writing-cursor"
+                    id="writingCursor"
+                >
+                    |
+                </span>
+
+
+                <div
+                    class="signature"
+                    id="signature"
+                >
+                    Liyana
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 EXTRA OPTIONS
+            ====================================== -->
+
+            <div
+                class="letter-extras"
+                id="letterExtras"
+            >
+
+                <p class="extras-small">
+                    and if you feel like staying a little longer...
+                </p>
+
+
+                <h2>
+                    there's more here for you.
+                </h2>
+
+
+                <div class="extra-grid">
+
+
+                    <!-- LITTLE THINGS -->
+
+                    <button
+                        class="extra-card"
+                        onclick="showExtraSection('things')"
+                    >
+
+                        <span class="extra-icon">
+                            🫧
+                        </span>
+
+                        <span class="extra-title">
+                            Little Things
+                        </span>
+
+                        <span class="extra-description">
+                            little things I notice about you
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- OPEN WHEN -->
+
+                    <button
+                        class="extra-card"
+                        onclick="showExtraSection('openwhen')"
+                    >
+
+                        <span class="extra-icon">
+                            🕯️
+                        </span>
+
+                        <span class="extra-title">
+                            Open When...
+                        </span>
+
+                        <span class="extra-description">
+                            little notes for different days
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+                <button
+                    class="envelope-back-button"
+                    onclick="backToEnvelope()"
+                >
+                    ← back to the envelope
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         LITTLE THINGS SECTION
+    ========================================== -->
+
+    <div
+        class="section-page"
+        id="thingsSection"
+    >
+
+        <div class="section-content">
+
+
+            <button
+                class="back-link"
+                onclick="backToLetter()"
+            >
+                ← back to the letter
+            </button>
+
+
+            <p class="section-small">
+                little things
+            </p>
+
+
+            <h1>
+                Things I Notice
+            </h1>
+
+
+            <p class="section-intro">
+                not necessarily big things.<br>
+                just little things that somehow stayed with me.
+            </p>
+
+
+            <div class="things-list">
+
+
+                <div class="thing-card">
+
+                    <span class="thing-number">
+                        01
+                    </span>
+
+                    <h2>
+                        Your smile
+                    </h2>
+
+                    <p>
+                        There's something about your smile
+                        that makes a moment feel a little lighter.
+                    </p>
+
+                </div>
+
+
+
+                <div class="thing-card">
+
+                    <span class="thing-number">
+                        02
+                    </span>
+
+                    <h2>
+                        Your eyes
+                    </h2>
+
+                    <p>
+                        I don't really know how to explain it.
+                        I just notice them.
+                    </p>
+
+                </div>
+
+
+
+                <div class="thing-card">
+
+                    <span class="thing-number">
+                        03
+                    </span>
+
+                    <h2>
+                        The little things you say
+                    </h2>
+
+                    <p>
+                        Sometimes it's not even the whole conversation.
+                        It's just one small thing you said that I remember later.
+                    </p>
+
+                </div>
+
+
+
+                <div class="thing-card">
+
+                    <span class="thing-number">
+                        04
+                    </span>
+
+                    <h2>
+                        The way you are
+                    </h2>
+
+                    <p>
+                        Maybe I haven't known you long enough
+                        to know everything about you.
+                        But I like discovering the little parts I do get to see.
+                    </p>
+
+                </div>
+
+
+
+                <div class="thing-card">
+
+                    <span class="thing-number">
+                        05
+                    </span>
+
+                    <h2>
+                        Your little habits
+                    </h2>
+
+                    <p>
+                        Some things probably seem completely ordinary to you.
+                        Somehow, I still end up remembering them.
+                    </p>
+
+                </div>
+
+
+
+                <div class="thing-card">
+
+                    <span class="thing-number">
+                        06
+                    </span>
+
+                    <h2>
+                        Just... you
+                    </h2>
+
+                    <p>
+                        I don't think I need a perfect reason
+                        for every little thing I like about you.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="bottom-back"
+                onclick="backToLetter()"
+            >
+                ← back to the letter
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         OPEN WHEN SECTION
+    ========================================== -->
+
+    <div
+        class="section-page"
+        id="openWhenSection"
+    >
+
+        <div class="section-content">
+
+
+            <button
+                class="back-link"
+                onclick="backToLetter()"
+            >
+                ← back to the letter
+            </button>
+
+
+            <p class="section-small">
+                three little envelopes
+            </p>
+
+
+            <h1>
+                Open When...
+            </h1>
+
+
+            <p class="section-intro">
+                you don't have to open them all at once.
+            </p>
+
+
+            <div class="envelope-notes">
+
+
+                <button
+                    class="note-envelope"
+                    onclick="openNote(1)"
+                >
+
+                    <span class="note-icon">
+                        ☁️
+                    </span>
+
+                    <span>
+                        Open when you're tired
+                    </span>
+
+                    <small>
+                        a little reminder
+                    </small>
+
+                </button>
+
+
+
+                <button
+                    class="note-envelope"
+                    onclick="openNote(2)"
+                >
+
+                    <span class="note-icon">
+                        ☀️
+                    </span>
+
+                    <span>
+                        Open when you need a smile
+                    </span>
+
+                    <small>
+                        something small for you
+                    </small>
+
+                </button>
+
+
+
+                <button
+                    class="note-envelope"
+                    onclick="openNote(3)"
+                >
+
+                    <span class="note-icon">
+                        🌙
+                    </span>
+
+                    <span>
+                        Open when you're feeling sad
+                    </span>
+
+                    <small>
+                        a little reminder for you
+                    </small>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- NOTE POPUP -->
+
+            <div
+                class="note-popup"
+                id="notePopup"
+            >
+
+                <button
+                    class="close-note"
+                    onclick="closeNote()"
+                >
+                    ×
+                </button>
+
+
+                <div
+                    class="popup-icon"
+                    id="popupIcon"
+                >
+                    ☁️
+                </div>
+
+
+                <p
+                    class="popup-title"
+                    id="popupTitle"
+                ></p>
+
+
+                <p
+                    class="popup-text"
+                    id="popupText"
+                ></p>
+
+            </div>
+
+
+            <button
+                class="bottom-back"
+                onclick="backToLetter()"
+            >
+                ← back to the letter
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
